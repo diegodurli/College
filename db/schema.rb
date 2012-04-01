@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20120401180854) do
 
   create_table "schedules", :force => true do |t|
     t.string   "description"
-    t.datetime "date"
+    t.date     "date"
     t.boolean  "remember_me"
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
