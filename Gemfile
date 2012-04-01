@@ -13,5 +13,6 @@ group :assets do
   gem 'twitter-bootstrap-rails'
 end
 
-group :test do
+group :development do
+  gem 'annotate'
 end

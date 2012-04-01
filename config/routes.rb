@@ -1,4 +1,10 @@
 College::Application.routes.draw do
+  resources :schedules
+
+  resources :subjects
+
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
