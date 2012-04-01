@@ -1,29 +1,26 @@
-<h1>Listing subjects</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Status</th>
-    <th>Semester</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @subjects.each do |subject| %>
-  <tr>
-    <td><%= subject.name %></td>
-    <td><%= subject.status %></td>
-    <td><%= subject.semester %></td>
-    <td><%= subject.user_id %></td>
-    <td><%= link_to 'Show', subject %></td>
-    <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
-    <td><%= link_to 'Destroy', subject, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+<h1>Subjects</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subjects.each do |subject| %>
+      <tr>
+        <td><%= subject.id %></td>
+        <td><%= link_to subject.name, subject_path(subject) %></td>
+        <td><%= subject.created_at %></td>
+        <td>
+          <%= link_to 'Edit', edit_subject_path(subject), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', subject_path(subject), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
-
-<%= link_to 'New Subject', new_subject_path %>
+<%= link_to 'New', new_subject_path, :class => 'btn btn-primary' %>

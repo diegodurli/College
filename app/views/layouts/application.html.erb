@@ -5,10 +5,35 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+	<div class="navbar navbar-fixed-top">
+	  <div class="navbar-inner">
+	    <div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
 
-<%= yield %>
+				<%= content_tag :a, href: root_path, class: 'brand' do %>
+					<%= image_tag 'graduation.png', size: '20x20' %>
+				<% end %>
 
+        <div class="nav-collapse">
+          <ul class="nav">
+					  <li><%= link_to 'Signup', signup_path %></li>
+					  <li><%= link_to 'Login' , login_path %></li>
+					  <li><%= link_to 'Logout', logout_path %></li>
+          </ul>
+					<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+        </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="container">
+		<%= yield %>
+	</div>
 </body>
 </html>

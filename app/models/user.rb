@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_many :subjects, :schedules
+  has_many :subjects
+  has_many :schedules
   attr_accessible :name, :email, :password, :password_confirmation
 
   validates_presence_of :name, :email, :password, :password_confirmation

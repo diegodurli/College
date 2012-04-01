@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
+<h1>Subject</h1>
 
 <p>
-  <b>Name:</b>
+  <b>Name</b><br>
   <%= @subject.name %>
 </p>
 
 <p>
-  <b>Status:</b>
+  <b>Status</b><br>
   <%= @subject.status %>
 </p>
 
 <p>
-  <b>Semester:</b>
+  <b>Semester</b><br>
   <%= @subject.semester %>
 </p>
 
 <p>
-  <b>User:</b>
+  <b>User</b><br>
   <%= @subject.user_id %>
 </p>
 
-
-<%= link_to 'Edit', edit_subject_path(@subject) %> |
-<%= link_to 'Back', subjects_path %>
+<div class="form-actions">
+  <%= link_to 'Back', subjects_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_subject_path(@subject), :class => 'btn' %>
+  <%= link_to 'Delete', subject_path(@subject), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
