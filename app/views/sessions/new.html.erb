@@ -1,2 +1,24 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<%= form_tag sessions_path, :html => { :class => 'form-horizontal' } do %>
+	<fieldset>
+    <legend>Login</legend>
+
+    <div class="control-group">
+      <%= label_tag :email, nil, :class => 'control-label' %>
+      <div class="controls">
+        <%= text_field_tag :email, nil, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= label_tag :password, nil, :class => 'control-label' %>
+      <div class="controls">
+        <%= password_field_tag :password, nil, :class => 'password_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= submit_tag 'Login', :class => 'btn btn-primary' %>
+    </div>
+  </fieldset>
+  
+<% end %>

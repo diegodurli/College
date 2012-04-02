@@ -6,6 +6,7 @@ College::Application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   get 'signup', to: 'users#new'
 
+  resources :sessions
   resources :users do
     member do
       resources :subjects

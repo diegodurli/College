@@ -22,12 +22,17 @@
 				<% end %>
 
         <div class="nav-collapse">
-          <ul class="nav">
+	        <ul class="nav">
+					<% if current_user %>
+					  <li><%= link_to 'Logout', logout_path %></li>
+					<% else %>
 					  <li><%= link_to 'Signup', signup_path %></li>
 					  <li><%= link_to 'Login' , login_path %></li>
-					  <li><%= link_to 'Logout', logout_path %></li>
+					<% end %>
           </ul>
-					<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+					<% if current_user %>
+						<p class="navbar-text pull-right">Logged in as <a href="<%= user_path(current_user) %>"><%= current_user.name %></a></p>
+					<% end %>
         </div>
 	    </div>
 	  </div>
