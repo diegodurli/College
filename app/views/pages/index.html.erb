@@ -1,1 +1,4 @@
-Teste
+<% if current_user %>
+	<%= link_to 'Subjects', subjects_path(current_user) %><br/>
+	<%= link_to 'Schedules', schedules_path(current_user) %>
+<% end %>
