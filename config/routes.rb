@@ -1,5 +1,5 @@
 College::Application.routes.draw do
-
+  
   root to: 'pages#index'
 
   get 'login' , to: 'sessions#new'
