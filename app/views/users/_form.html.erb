@@ -1,38 +1,14 @@
-<%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> User</legend>
 
-    <div class="control-group">
-      <%= f.label :name, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :name, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :email, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.text_field :email, :class => 'text_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :password, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.password_field :password, :class => 'password_field' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label 'Confirmation', :class => 'control-label' %>
-      <div class="controls">
-        <%= f.password_field :password_confirmation, :class => 'password_field' %>
-      </div>
-    </div>
+		<%= f.input :name, class: 'control-group control-label text_field' %>
+		<%= f.input :email, class: 'control-group control-label text_field' %>
+		<%= f.input :password, class: 'control-group control-label text_field' %>
+		<%= f.input :password_confirmation, label: 'Confirmation', class: 'control-group control-label text_field' %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
-      <%= link_to 'Cancel', users_path, :class => 'btn' %>
     </div>
   </fieldset>
 <% end %>

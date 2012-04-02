@@ -1,4 +1,21 @@
-<% if current_user %>
-	<%= link_to 'Subjects', subjects_path(current_user) %><br/>
-	<%= link_to 'Schedules', schedules_path(current_user) %>
-<% end %>
+<div class='index_page'>
+	<% if current_user %>
+		<%= link_to 'Subjects', subjects_path(current_user), class: 'btn btn-primary btn-large btn-large1' %><br/><br/>
+		<%= link_to 'Schedules', schedules_path(current_user), class: 'btn btn-primary btn-large btn-large2' %>
+	<% else %>
+		<div class='text_index_page'>
+			<h2>Welcome!</h2>
+
+			This app is a monitor to your College’s Subjects.<br/><br/>
+
+			You can register three kinds of subjects:<br/><br/>
+
+			- Completed<br/>
+			- Registered<br/>
+			- Pending<br/><br/>
+			Based on what you registered in the app, it will be able to tell you the percentage achieved in your Graduation or any other course.<br/><br/>
+
+			This data is displayed through a chart.
+		</div>
+	<% end %>
+</div>

@@ -8,7 +8,7 @@ You can register three kinds of subjects:
   - Pending
 
 Based on what you registered in the app, it will be
-able to tell you the percentage achieve in your Graduation or
+able to tell you the percentage achieved in your Graduation or
 any other course.
 
 This data is displayed through a chart.

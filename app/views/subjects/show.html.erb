@@ -15,11 +15,6 @@
   <%= @subject.semester %>
 </p>
 
-<p>
-  <b>User</b><br>
-  <%= @subject.user_id %>
-</p>
-
 <div class="form-actions">
   <%= link_to 'Back', subjects_path, :class => 'btn'  %>
   <%= link_to 'Edit', edit_subject_path(@subject), :class => 'btn' %>

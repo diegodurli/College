@@ -15,11 +15,6 @@
   <%= @schedule.remember_me %>
 </p>
 
-<p>
-  <b>User</b><br>
-  <%= @schedule.user_id %>
-</p>
-
 <div class="form-actions">
   <%= link_to 'Back', schedules_path, :class => 'btn'  %>
   <%= link_to 'Edit', edit_schedule_path(@schedule), :class => 'btn' %>

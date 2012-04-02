@@ -1,8 +1,11 @@
 class SubjectsController < ApplicationController
+  before_filter :authorize, only: [:create, :update]
+  
   # GET /subjects
   # GET /subjects.json
   def index
-    @subjects = Subject.all
+    @subjects        = Subject.by_status_desc
+    @count_by_status = Subject.count_by_status
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,7 +47,7 @@ class SubjectsController < ApplicationController
 
     respond_to do |format|
       if @subject.save
-        format.html { redirect_to @subject, notice: 'Subject was successfully created.' }
+        format.html { redirect_to subjects_path, notice: 'Subject was successfully created.' }
         format.json { render json: @subject, status: :created, location: @subject }
       else
         format.html { render action: "new" }
@@ -60,7 +63,7 @@ class SubjectsController < ApplicationController
 
     respond_to do |format|
       if @subject.update_attributes(params[:subject])
-        format.html { redirect_to @subject, notice: 'Subject was successfully updated.' }
+        format.html { redirect_to subjects_path, notice: 'Subject was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

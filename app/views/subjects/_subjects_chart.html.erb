@@ -1,0 +1,36 @@
+<script type="text/javascript" charset="utf-8">
+	function format_text() {
+		return "<b>" + this.point.name + "</b>: " + this.percentage.toFixed(2) + " %";
+	}
+
+	$(function() {
+		new Highcharts.Chart({
+			chart: {
+				renderTo: 'subjects_chart'
+			},
+			title: {
+				text: 'Subjects'
+			},
+			tooltip: {
+				formatter: format_text
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					cursor: 'pointer',
+					dataLabels: {
+						enabled: false,
+						color: '#000000',
+						connectorColor: '#000000',
+						formatter: format_text
+					},
+					showInLegend: true
+				}
+			},
+			series: [{
+				type: 'pie',
+				data: [<%= subjects_by_status %>]
+			}]
+		});
+	});
+</script>

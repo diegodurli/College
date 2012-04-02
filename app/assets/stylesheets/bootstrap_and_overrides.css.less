@@ -17,34 +17,10 @@ body{padding-top: 60px;}
 // Example:
 // @linkColor: #ff0000;
 
-/*
-@bodyColor: darken(@grayLighter, 10%);
+@bodyColor: darken(@grayLighter, 2%);
 
 body {
 	background: @bodyColor;
-}
-
-label {
-	color: #222;
-	.textShadow();
-	font-size: 16px;
-  margin: 0;
-  font-size: 100%;
-  vertical-align: middle;
-  display: inline;
-  margin-bottom: 5px;
-  color: #333333;
-}
-
-h1 {
-	text-align: center;
-	color: #222;
-	font-size: 50px;
-	.textShadow();
-}
-
-.textShadow {
-	text-shadow: inset 0px 1px 0px #666;
 }
 
 .centerObj(@height: 100px, @width: 100px) {
@@ -55,83 +31,41 @@ h1 {
   margin-top:(@height/-2);
 }
 
-#content {
-	@width: 1100px;
-	@height: 700px;
+.centerObjWidth(@width: 100px) {
+  position:absolute;
+  left:50%;
+  margin-left:(@width/-2);
+}
+
+.index_page {
+	@width: 500px;
+	@height: 300px;
 	.size(@height,@width);
 	.centerObj(@height,@width);
 }
 
-#home {
-	@width: 600px;
-	@height: 600px;
+.text_index_page {
+	font-size: 20px;
+}
+
+.btn-large {
+	@width: 500px;
+	@height: 50px;
 	.size(@height,@width);
-	.centerObj(@height,@width);
-	.border-radius();
-	.box-shadow();
-	
-	h1 {
-		padding-top: 30px;
-	}
-	
-	p {
-		padding-top: 60px;
-		text-align: center;
-		font-size: 60px;
-	}
+	.centerObjWidth(@width);
 }
 
-#error_messages {
-	@width: 400px;
-	@height: 70px;
-	.size(@height,@width);
-	.center-block();
-	.border-radius();
-	.box-shadow();
-	margin-top: 30px;
-	.scale(1.2);
-	background: darken(@errorBackground,35%);
+.btn-large1 {
+	margin-top: 40px;
+	padding: 35px 0px 0px 0px;
 }
 
-#error_explanation {
-	margin-left: 5px;
-	padding-top: 3px;
-	font: 11px Tahoma, Helvetica, Arial, Sans-Serif;
-	color: lighten(@errorText,40%);	
+.btn-large2 {
+	margin-top: 135px;
+	padding: 35px 0px 0px 0px;
 }
 
-#flash_notice,
-#flash_alert,
-#flash_success,
-#flash_error {
-	@width: 400px;
-	@height: 30px;
-	.size(@height,@width);
-	.center-block();
-	.border-radius();
-	.box-shadow();
-	margin-top: 120px;
-	.scale(1.2);
+.btn-large3 {
+	font-size: 25px;
+	padding: 20px 0px 0px 0px;
 }
-
-#flash_text {
-	text-align: center;
-	padding-top: 3px;
-	font: 19px Tahoma, Helvetica, Arial, Sans-Serif;
-}
-
-#flash_alert {
-	color: lighten(@warningText,50%);
-	background: darken(@warningBackground,35%);
-}
-
-#flash_notice,
-#flash_success {
-	color: lighten(@successText,60%);
-	background: darken(@successBackground,35%);
-}
-
-#flash_error {
-	color: lighten(@errorText,40%);
-	background: darken(@errorBackground,35%);
-}*/

@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   respond_to :html, :json, :xml
 
+  def index
+    redirect_to root_path
+  end
+
   def show
     @user = User.find(params[:id])
     respond_with @user
