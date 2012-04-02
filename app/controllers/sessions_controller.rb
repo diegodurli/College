@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       cookies.permanent[:auth_token] = user.auth_token
       redirect_to root_path, notice: 'User was logged in successfully.'
     else
-      flash.now.notice = 'Your email or password is invalid.'
+      flash.now.alert = 'Your email or password is invalid.'
       render :new
     end
   end

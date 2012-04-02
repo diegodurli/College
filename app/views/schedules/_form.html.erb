@@ -12,7 +12,7 @@
     <div class="control-group">
       <%= f.label :date, :class => 'control-label' %>
       <div class="controls">
-        <%= f.date_select :date, :class => 'date_select' %>
+        <%= f.text_field :date, :class => 'date_select' %>
       </div>
     </div>
 
@@ -20,13 +20,6 @@
       <%= f.label :remember_me, :class => 'control-label' %>
       <div class="controls">
         <%= f.check_box :remember_me, :class => 'check_box' %>
-      </div>
-    </div>
-
-    <div class="control-group">
-      <%= f.label :user_id, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.number_field :user_id, :class => 'number_field' %>
       </div>
     </div>
 
