@@ -16,6 +16,12 @@ class Subject < ActiveRecord::Base
   end
 
   def self.count_by_status
-    Subject.group('status').count
+    subjects = { completed: 0, pending: 0, registered: 0 }
+
+    Subject.group('status').count.each do |key, value|
+      subjects.merge!({ key.downcase.to_sym => value })
+    end
+
+    subjects
   end
 end
