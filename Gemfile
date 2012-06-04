@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
-gem 'sqlite3'
 gem 'jquery-rails'
 gem 'bcrypt-ruby'
 gem 'simple_form'
@@ -15,5 +14,6 @@ group :assets do
 end
 
 group :development do
+  gem 'sqlite3'
   gem 'annotate'
 end
