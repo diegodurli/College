@@ -1,11 +1,12 @@
 class SubjectsController < ApplicationController
   before_filter :authorize, only: [:create, :update]
+  helper_method :count_by_status, :subjects_by_status
   
   # GET /subjects
   # GET /subjects.json
   def index
-    @subjects        = Subject.by_status_desc
-    @count_by_status = Subject.count_by_status
+    @subjects        = current_user.subjects.by_status_desc
+    @count_by_status = count_by_status
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,7 +44,7 @@ class SubjectsController < ApplicationController
   # POST /subjects
   # POST /subjects.json
   def create
-    @subject = Subject.new(params[:subject])
+    @subject = current_user.subjects.build(params[:subject])
 
     respond_to do |format|
       if @subject.save
@@ -82,5 +83,27 @@ class SubjectsController < ApplicationController
       format.html { redirect_to subjects_url }
       format.json { head :no_content }
     end
+  end
+
+  protected
+
+  def count_by_status
+    subjects = { completed: 0, pending: 0, registered: 0 }
+
+    current_user.subjects.group('status').count.each do |key, value|
+      subjects.merge!({ key.downcase.to_sym => value })
+    end
+
+    subjects
+  end
+
+  def subjects_by_status
+    subjects_by_status = ""
+
+    current_user.subjects.group("status").count.each do |status, value|
+      subjects_by_status << "['#{status}',#{value}],"
+    end
+
+    subjects_by_status
   end
 end
