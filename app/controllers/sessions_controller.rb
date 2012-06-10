@@ -5,12 +5,15 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
-      cookies.permanent[:auth_token] = user.auth_token
-      redirect_to root_path, notice: 'User was logged in successfully.'
-    else
-      flash.now.alert = 'Your email or password is invalid.'
-      render :new
+
+    respond_to do |format|
+      if user && user.authenticate(params[:password])
+        cookies.permanent[:auth_token] = user.auth_token
+        format.html { redirect_to root_path, notice: 'User was logged in successfully.' }
+      else
+        flash.now.alert = 'Your email or password is invalid.'
+        format.html { render :new }
+      end
     end
   end
 

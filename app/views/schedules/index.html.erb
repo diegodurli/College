@@ -4,21 +4,42 @@
   <thead>
     <tr>
       <th>Description</th>
+      <th>Date</th>
       <th>Remember Me</th>
     </tr>
   </thead>
-  <tbody>
-    <% @schedules.each do |schedule| %>
-      <tr>
-        <td><%= link_to schedule.description, schedule_path(schedule) %></td>
-        <td><%= schedule.remember_me %></td>
-        <td>
-          <%= link_to 'Edit', edit_schedule_path(schedule), :class => 'btn btn-mini' %>
-          <%= link_to 'Destroy', schedule_path(schedule), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
+  <tbody class="schedules">
+    <%= render @schedules %>
   </tbody>
 </table>
 
-<%= link_to 'New', new_schedule_path, :class => 'btn btn-primary' %>
+<%= form_for Schedule.new, :html => { :class => 'form-horizontal remote-form' }, remote: true do |f| %>
+  <fieldset>
+    <legend>New Schedule</legend>
+
+    <div class="control-group">
+      <%= f.label :description, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :description, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :date, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :date, :class => 'date_select' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :remember_me, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.check_box :remember_me, :class => 'check_box' %>
+      </div>
+    </div>
+
+    <div class="buttons-remote-form">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+    </div>
+  </fieldset>
+<% end %>

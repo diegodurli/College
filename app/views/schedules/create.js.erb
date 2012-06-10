@@ -1,0 +1,8 @@
+$('tbody.schedules').append("<%= escape_javascript(render @schedule) %>");
+$('div.alert').remove();
+$('div#messages').append("<div class='alert alert-success'><a class='close' data-dismiss='alert'>×</a><div>Schedule was successfully created.</div></div>");
+
+// Como nao iremos dar refresh no browser, precisamos zerar os campos
+document.getElementById('schedule_description').value   = '';
+document.getElementById('schedule_date')	   .value   = '';
+document.getElementById('schedule_remember_me').checked = false;

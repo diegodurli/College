@@ -1,0 +1,9 @@
+<tr id="<%= schedule.id %>">
+	<td><%= link_to schedule.description, schedule_path(schedule) %></td>
+	<td><%= schedule.date.strftime("%m, %B %Y") %></td>
+	<td><%= schedule.remember_me %></td>
+	<td>
+	  <%= link_to 'Edit', edit_schedule_path(schedule), :class => 'btn btn-mini' %>
+	  <%= link_to 'Destroy', schedule_path(schedule), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger', remote: true %>
+	</td>
+</tr>

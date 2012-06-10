@@ -52,6 +52,7 @@ class SchedulesController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
@@ -80,6 +81,7 @@ class SchedulesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to schedules_url, notice: 'Schedule was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 end
