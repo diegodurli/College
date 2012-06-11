@@ -4,18 +4,18 @@
 		<%= link_to 'Schedules', schedules_path(current_user), class: 'btn btn-primary btn-large btn-large2' %>
 	<% else %>
 		<div class='text_index_page'>
-			<h2>Welcome!</h2>
+			<h2>Bem-Vindo!</h2></br></br>
 
-			This app is a monitor to your College’s Subjects.<br/><br/>
+			Este app tem por objetivo gerenciar os compromissos
+			e disciplinas de um estudante universitário.<br/><br/>
 
-			You can register three kinds of subjects:<br/><br/>
+			É possível cadastrar três tipos de disciplinas:<br/><br/>
 
-			- Completed<br/>
-			- Registered<br/>
-			- Pending<br/><br/>
-			Based on what you registered in the app, it will be able to tell you the percentage achieved in your Graduation or any other course.<br/><br/>
+			- Completed (Já concluídas)<br/>
+			- Registered (Em curso)<br/>
+			- Pending (Pendentes)<br/><br/>
 
-			This data is displayed through a chart.
+			Baseado no cadastro das disciplinas, o aplicativo exibe em um gráfico a situação geral do andamento da graduação do estudante.<br/><br/>
 		</div>
 	<% end %>
 </div>
