@@ -66,7 +66,7 @@ class SchedulesController < ApplicationController
         format.html { redirect_to schedules_path, notice: 'Schedule was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render :edit }
         format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
     end

@@ -1,0 +1,7 @@
+$('tr#<%= @subject.id %>').fadeOut();
+$('div.alert').remove();
+$('div#messages').append("<div class='alert alert-success'><a class='close' data-dismiss='alert'>×</a><div>Subject was successfully destroyed.</div></div>");
+$('div#subjects_chart').before("<%= escape_javascript(render 'subjects_chart') %>");
+
+$('tbody#subjects_count_by_status tr').remove();
+$('tbody#subjects_count_by_status').append("<tr><%= escape_javascript(render 'subjects_count_by_status') %></tr>");

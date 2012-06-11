@@ -82,6 +82,7 @@ class SubjectsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to subjects_url }
       format.json { head :no_content }
+      format.js
     end
   end
 

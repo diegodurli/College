@@ -1,8 +1,19 @@
-$('tbody.schedules').append("<%= escape_javascript(render @schedule) %>");
-$('div.alert').remove();
-$('div#messages').append("<div class='alert alert-success'><a class='close' data-dismiss='alert'>×</a><div>Schedule was successfully created.</div></div>");
 
-// Como nao iremos dar refresh no browser, precisamos zerar os campos
-document.getElementById('schedule_description').value   = '';
-document.getElementById('schedule_date')	   .value   = '';
-document.getElementById('schedule_remember_me').checked = false;
+function addMessage(type, message) {
+	$('div.alert').remove();
+	$('div#messages').append("<div class='alert " + type + "'" + "><a class='close' data-dismiss='alert'>×</a><div>" + message + "</div></div>");
+}
+
+<% if @schedule.new_record? %>
+	$('input#schedule_description').effect('highlight', { color: 'red' });
+	$('input#schedule_date')	   .effect('highlight', { color: 'red' });
+	addMessage("alert-error", "Schedule wasn't created.");
+<% else %>
+	$('tbody.schedules').append("<%= escape_javascript(render @schedule) %>");
+	addMessage("alert-success", "Schedule was successfully created.");
+
+	// Como nao iremos dar refresh no browser, precisamos zerar os campos
+	document.getElementById('schedule_description').value   = '';
+	document.getElementById('schedule_date')	   .value   = '';
+	document.getElementById('schedule_remember_me').checked = false;	
+<% end %>

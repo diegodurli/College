@@ -1,0 +1,8 @@
+<tr id="<%= subject.id %>">
+	<td><%= link_to subject.name, subject_path(subject) %></td>
+	<td><%= subject.status %></td>
+	<td>
+	  <%= link_to 'Edit', edit_subject_path(subject), :class => 'btn btn-mini' %>
+	  <%= link_to 'Destroy', subject_path(subject), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger', remote: true %>
+	</td>
+</tr>

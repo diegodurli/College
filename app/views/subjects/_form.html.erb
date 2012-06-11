@@ -1,10 +1,29 @@
-<%= simple_form_for @subject, :html => { :class => 'form-horizontal' } do |f| %>
+<%= render 'shared/error_messages', object: @subject %>
+
+<%= form_for @subject, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
     <legend><%= controller.action_name.capitalize %> Subject</legend>
 
-		<%= f.input :name, class: 'control-label text_field' %>
-		<%= f.input :status, collection: ['Completed','Registered','Pending'], as: :select %>
-		<%= f.input :semester, collection: 1..9, as: :radio_buttons, :item_wrapper_class => 'inline' %>
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :status, :class => 'control-label' %>
+      <div class="controls date_select">
+        <%= f.select :status, options_for_select([["Completed"],["Pending"],["Registered"]]) %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :semester, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :semester, options_for_select([[1],[2],[3],[4],[5],[6],[7],[8],[9],[10]], selected: @subject.semester) %>
+      </div>
+    </div>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
