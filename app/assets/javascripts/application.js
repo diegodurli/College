@@ -14,7 +14,3 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
-
-$(function() {
-  $("#schedule_date").datepicker();
-});

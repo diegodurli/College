@@ -1,0 +1,2 @@
+$ ->
+   $("#schedule_date").datepicker()
